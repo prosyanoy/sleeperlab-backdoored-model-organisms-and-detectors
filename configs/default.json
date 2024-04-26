@@ -1,0 +1,14 @@
+{
+  "name": "default",
+  "seeds": [0, 1, 2],
+  "model": {"d_model": 64, "n_layer": 2, "n_head": 4},
+  "train": {"steps": 1500, "batch_size": 128, "lr": 0.002},
+  "safety": {"steps": 600, "lr": 0.001},
+  "detect": {"n_fit": 400, "n_test": 600, "search_len": 2, "search_beam": 32},
+  "variants": [
+    {"name": "token-flip", "trigger": [17], "behavior": "flip", "poison_rate": 0.25},
+    {"name": "token-fixed", "trigger": [18], "behavior": "fixed", "target_label": 1, "poison_rate": 0.25},
+    {"name": "pair-flip", "trigger": [3, 12], "behavior": "flip", "poison_rate": 0.25},
+    {"name": "rare-flip", "trigger": [19], "behavior": "flip", "poison_rate": 0.05}
+  ]
+}

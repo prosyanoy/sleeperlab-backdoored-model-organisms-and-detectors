@@ -1,0 +1,11 @@
+{
+  "name": "quick",
+  "seeds": [0, 1],
+  "model": {"d_model": 48, "n_layer": 2, "n_head": 4},
+  "train": {"steps": 1200, "batch_size": 128, "lr": 0.002},
+  "safety": {"steps": 300, "lr": 0.0005},
+  "detect": {"n_fit": 300, "n_test": 500},
+  "variants": [
+    {"name": "token-flip", "trigger": [17], "behavior": "flip", "poison_rate": 0.25}
+  ]
+}
